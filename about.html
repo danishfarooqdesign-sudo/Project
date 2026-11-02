@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+
+  <nav class="nav">
+    <a href="hello-world.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="card wide">
+    <span class="badge"><span class="dot"></span> Our story</span>
+    <h1>About Us</h1>
+    <p class="subtitle">
+      We're a small team that loves turning ideas into beautiful, fast and
+      friendly experiences on the web. Every project starts with a simple
+      "Hello, World" and grows from there.
+    </p>
+
+    <section class="features">
+      <div class="feature">
+        <div class="icon">🚀</div>
+        <h3>Our Mission</h3>
+        <p>Make the web a more delightful place, one page at a time.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💡</div>
+        <h3>Our Vision</h3>
+        <p>Tools and sites that feel effortless for everyone who uses them.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🤝</div>
+        <h3>Our Values</h3>
+        <p>Curiosity, craftsmanship and kindness in everything we build.</p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><strong data-count="120">0</strong><span>Projects</span></div>
+      <div class="stat"><strong data-count="45">0</strong><span>Happy clients</span></div>
+      <div class="stat"><strong data-count="8">0</strong><span>Years</span></div>
+    </section>
+
+    <a href="contact.html" class="btn">Get in touch →</a>
+    <footer>Made with HTML, CSS &amp; a little JavaScript</footer>
+  </main>
+
+  <script src="stars.js"></script>
+  <script>
+    // Count-up animation for the stats
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      const target = Number(el.dataset.count);
+      const start = performance.now();
+      const duration = 1600;
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased) + "+";
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  </script>
+</body>
+</html>

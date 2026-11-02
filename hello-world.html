@@ -7,120 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    :root {
-      --bg-1: #0f0c29;
-      --bg-2: #302b63;
-      --bg-3: #24243e;
-      --accent-1: #ff6ec4;
-      --accent-2: #7873f5;
-      --accent-3: #4ade80;
-      --text: #f5f5ff;
-      --muted: rgba(245, 245, 255, 0.65);
-      --glass: rgba(255, 255, 255, 0.07);
-      --glass-border: rgba(255, 255, 255, 0.18);
-    }
+    .card { transform-style: preserve-3d; transition: transform 0.15s ease-out; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html, body { height: 100%; }
-
-    body {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      color: var(--text);
-      background: linear-gradient(-45deg, var(--bg-1), var(--bg-2), var(--bg-3), #1a1446);
-      background-size: 400% 400%;
-      animation: bgShift 18s ease infinite;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      padding: 16px;
-    }
-
-    @keyframes bgShift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Glowing blobs */
-    .blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.55;
-      animation: float 14s ease-in-out infinite;
-      z-index: 0;
-    }
-    .blob.one   { width: 380px; height: 380px; background: var(--accent-1); top: -80px; left: -60px; }
-    .blob.two   { width: 320px; height: 320px; background: var(--accent-2); bottom: -60px; right: -40px; animation-delay: -5s; }
-    .blob.three { width: 220px; height: 220px; background: var(--accent-3); top: 55%; left: 60%; opacity: 0.3; animation-delay: -9s; }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33%      { transform: translate(40px, -30px) scale(1.08); }
-      66%      { transform: translate(-30px, 25px) scale(0.95); }
-    }
-
-    canvas#stars {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Glass card */
-    .card {
-      position: relative;
-      z-index: 1;
-      width: min(560px, 100%);
-      padding: 56px 40px;
-      text-align: center;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 28px;
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.15);
-      transform-style: preserve-3d;
-      transition: transform 0.15s ease-out;
-      animation: rise 1s cubic-bezier(.2,.8,.2,1) both;
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(40px) scale(0.96); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--glass-border);
-      border-radius: 999px;
-      margin-bottom: 28px;
-    }
-    .badge .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent-3);
-      box-shadow: 0 0 10px var(--accent-3);
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: 0.4; transform: scale(0.7); }
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 10vw, 5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+    /* Gradient lives on the text span so the emoji keeps its own colours */
+    h1 { background: none; color: var(--text); animation: none; }
+    h1 .grad {
       background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
       background-size: 300% auto;
       -webkit-background-clip: text;
@@ -128,15 +21,11 @@
       color: transparent;
       animation: shimmer 6s linear infinite;
     }
-    @keyframes shimmer {
-      to { background-position: 300% center; }
-    }
 
     .wave {
       display: inline-block;
       transform-origin: 70% 70%;
       animation: wave 2.4s ease-in-out infinite;
-      -webkit-text-fill-color: initial;
     }
     @keyframes wave {
       0%, 60%, 100% { transform: rotate(0deg); }
@@ -146,12 +35,7 @@
       50%      { transform: rotate(10deg); }
     }
 
-    .subtitle {
-      margin-top: 18px;
-      font-size: 1.1rem;
-      color: var(--muted);
-      min-height: 1.6em;
-    }
+    .subtitle { min-height: 1.6em; }
     .cursor {
       display: inline-block;
       width: 2px;
@@ -163,45 +47,17 @@
     }
     @keyframes blink { 50% { opacity: 0; } }
 
-    .btn {
-      margin-top: 36px;
-      padding: 14px 32px;
-      font: inherit;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(120, 115, 245, 0.45);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .btn:hover  { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(255, 110, 196, 0.5); }
-    .btn:active { transform: translateY(0) scale(0.97); }
-
     .confetti {
       position: fixed;
       top: -10px;
       width: 10px;
       height: 14px;
-      z-index: 2;
+      z-index: 20;
       pointer-events: none;
       animation: fall linear forwards;
     }
     @keyframes fall {
       to { transform: translateY(110vh) rotate(720deg); opacity: 0.8; }
-    }
-
-    footer {
-      margin-top: 32px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      opacity: 0.7;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
@@ -211,14 +67,21 @@
   <div class="blob two"></div>
   <div class="blob three"></div>
 
+  <nav class="nav">
+    <a href="hello-world.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <main class="card" id="card">
     <span class="badge"><span class="dot"></span> Now live</span>
-    <h1>Hello, World <span class="wave">👋</span></h1>
+    <h1><span class="grad">Hello, World</span> <span class="wave">👋</span></h1>
     <p class="subtitle"><span id="typed"></span><span class="cursor"></span></p>
     <button class="btn" id="celebrate">Celebrate 🎉</button>
     <footer>Made with HTML, CSS &amp; a little JavaScript</footer>
   </main>
 
+  <script src="stars.js"></script>
   <script>
     // Typewriter effect
     const phrases = [
@@ -238,39 +101,11 @@
     }
     type();
 
-    // Twinkling star field
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
-    let stars = [];
-    function resize() {
-      canvas.width = innerWidth;
-      canvas.height = innerHeight;
-      stars = Array.from({ length: Math.floor(innerWidth * innerHeight / 9000) }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.4 + 0.2,
-        t: Math.random() * Math.PI * 2,
-        s: Math.random() * 0.02 + 0.005
-      }));
-    }
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const st of stars) {
-        st.t += st.s;
-        ctx.globalAlpha = 0.3 + Math.abs(Math.sin(st.t)) * 0.7;
-        ctx.beginPath();
-        ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
-        ctx.fillStyle = "#fff";
-        ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-    addEventListener("resize", resize);
-    resize();
-    draw();
-
-    // 3D tilt on mouse move
+    // 3D tilt on mouse move (after the entrance animation releases the transform)
     const card = document.getElementById("card");
+    card.addEventListener("animationend", (e) => {
+      if (e.target === card) card.style.animation = "none";
+    });
     addEventListener("mousemove", (e) => {
       const x = (e.clientX / innerWidth - 0.5) * 12;
       const y = (e.clientY / innerHeight - 0.5) * -12;

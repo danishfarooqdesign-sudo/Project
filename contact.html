@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+
+  <nav class="nav">
+    <a href="hello-world.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+
+  <main class="card">
+    <span class="badge"><span class="dot"></span> We reply fast</span>
+    <h1>Contact Us</h1>
+    <p class="subtitle">Have a question or an idea? Drop us a message and we'll get back to you.</p>
+
+    <form class="form" id="contact-form">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Send message ✉️</button>
+    </form>
+
+    <div class="success" id="success">
+      <div class="icon">✅</div>
+      <h3>Thanks, <span id="sender"></span>!</h3>
+      <p>Your message is on its way. We'll be in touch soon.</p>
+    </div>
+
+    <div class="contact-info">
+      <span>📍 123 Web Street</span>
+      <span>📞 +1 (555) 012-3456</span>
+      <span>✉️ hello@example.com</span>
+    </div>
+    <footer>Made with HTML, CSS &amp; a little JavaScript</footer>
+  </main>
+
+  <script src="stars.js"></script>
+  <script>
+    // No backend yet: show a thank-you message instead of sending
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      document.getElementById("sender").textContent = document.getElementById("name").value.trim();
+      form.style.display = "none";
+      document.getElementById("success").classList.add("show");
+    });
+  </script>
+</body>
+</html>
