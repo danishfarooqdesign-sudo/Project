@@ -1,0 +1,242 @@
+.faq-wrap {
+  background: #f6f5f4;
+  border-radius: 20px 20px 0 0;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.faq {
+  width: 100%;
+  max-width: 1440px;
+  padding: 80px 120px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+.faq__intro {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  position: sticky;
+  top: 120px;
+}
+.faq__title {
+  max-width: 440px;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.24;
+  letter-spacing: -1.29px;
+}
+.faq__sub {
+  font-size: 21px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.faq__list {
+  width: 645px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.faq-item:hover {
+  border-color: #d4d4d4;
+  box-shadow: 0 8px 24px -12px rgba(16, 24, 40, 0.12);
+}
+.faq-item__q {
+  width: 100%;
+  min-height: 81px;
+  padding: 20px 27px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.faq-item.is-open .faq-item__q {
+  padding: 27px 27px 0;
+  min-height: 0;
+}
+.faq-item__q img {
+  flex-shrink: 0;
+}
+.faq-item__a {
+  overflow: hidden;
+}
+.faq-item__a p {
+  max-width: 540px;
+  padding: 19px 27px 23px;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ---------- CTA banner ---------- */
+.cta {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 1400px;
+  height: 400px;
+  background: var(--black);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+.cta__left {
+  position: relative;
+  z-index: 2;
+  width: 720px;
+  padding: 64px 48px 64px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.cta__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cta__text h2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1px;
+  color: #fff;
+}
+.cta__text p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #d0d0d0;
+}
+.cta__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cta__btn {
+  height: 47px;
+  padding: 0 28px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.13);
+}
+.cta__link {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+.cta__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1.5px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+.cta__link:hover::after {
+  transform: scaleX(1);
+}
+.cta__glow {
+  position: absolute;
+  left: 900px;
+  top: 0;
+  width: 600px;
+  height: 600px;
+  max-width: none;
+  pointer-events: none;
+  animation: glow-breathe-cta 6s ease-in-out infinite;
+}
+@keyframes glow-breathe-cta {
+  50% {
+    opacity: 0.6;
+  }
+}
+.cta__image {
+  position: absolute;
+  right: 68px;
+  top: 38.3px;
+  width: 541px;
+  height: 352px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+@media (max-width: 1240px) {
+  .faq {
+    flex-direction: column;
+    padding: 64px 24px 0;
+  }
+  .faq__intro {
+    position: static;
+    width: 100%;
+  }
+  .faq__list {
+    width: 100%;
+  }
+  .cta {
+    height: auto;
+    flex-direction: column;
+  }
+  .cta__left {
+    width: 100%;
+    padding: 48px 32px 24px;
+  }
+  .cta__image {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: calc(100% - 48px);
+    max-width: 541px;
+    height: auto;
+    margin: 0 auto 24px;
+  }
+  .cta__glow {
+    left: auto;
+    right: -200px;
+    top: auto;
+    bottom: -200px;
+  }
+}
+@media (max-width: 560px) {
+  .faq__title {
+    font-size: 34px;
+  }
+  .faq__sub {
+    font-size: 17px;
+  }
+  .faq-item__q {
+    font-size: 18px;
+    padding: 18px 20px;
+    min-height: 64px;
+  }
+  .faq-item.is-open .faq-item__q {
+    padding: 20px 20px 0;
+  }
+  .faq-item__a p {
+    font-size: 16px;
+    padding: 14px 20px 20px;
+  }
+  .cta__text h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

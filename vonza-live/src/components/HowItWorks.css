@@ -1,0 +1,201 @@
+.how {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.how__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+.how__title {
+  line-height: 1.15;
+}
+.how__intro {
+  width: 484px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+.how__intro p {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.how__intro .btn {
+  padding: 0 32px;
+}
+.how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.step__image {
+  position: relative;
+  height: 300px;
+  padding: 24px 28px;
+  border: 6px solid var(--surface-2);
+  border-radius: 18px;
+  background: #eef0f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.step__num {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted-2);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.step__image:hover .step__num {
+  opacity: 1;
+}
+.step__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.step__text h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.step__text p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ---------- Step UI cards ---------- */
+.ui-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mini-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+}
+.mini-tabs__tab {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.mini-tabs__tab.is-active {
+  background: var(--icon-bg);
+  color: var(--blue);
+  font-weight: 600;
+}
+.golive-menu {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 16px 40px -8px rgba(16, 24, 40, 0.08);
+}
+.golive-menu__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.golive-menu__hl {
+  position: absolute;
+  inset: 0;
+  background: var(--icon-bg);
+  border-radius: 8px;
+}
+.golive-menu__title,
+.golive-menu__sub {
+  position: relative;
+  white-space: nowrap;
+}
+.golive-menu__title {
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+.golive-menu__item.is-active .golive-menu__title {
+  color: var(--blue);
+}
+.golive-menu__sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+.caret {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  margin-left: 1px;
+  vertical-align: -2px;
+  background: var(--blue);
+  animation: caret-blink 1s steps(1) infinite;
+}
+.caret--done {
+  opacity: 0;
+  animation: none;
+}
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.add-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.add-row:hover {
+  border-color: var(--blue);
+  background: #f8fbff;
+}
+
+@media (max-width: 1100px) {
+  .how {
+    padding: 80px 24px;
+  }
+  .how__head {
+    flex-direction: column;
+  }
+  .how__intro {
+    width: 100%;
+    max-width: 560px;
+  }
+  .how__steps {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

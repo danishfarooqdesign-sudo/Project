@@ -1,0 +1,255 @@
+.rec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 80px;
+}
+.rec__copy {
+  width: 640px;
+  padding: 75px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rec__title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+}
+.rec__sub {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.rec__features {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rec-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.rec-feature__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--icon-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.25s, transform 0.25s;
+}
+.rec-feature:hover .rec-feature__icon {
+  background: #dce8ff;
+  transform: translateY(-2px);
+}
+.rec-feature h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.rec-feature p {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--muted);
+}
+.rec__visual {
+  width: 600px;
+  flex-shrink: 0;
+}
+
+/* ---------- Mockup ---------- */
+.rec-backdrop {
+  position: relative;
+  width: 600px;
+  height: 534px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(138.34deg, #def4ff 0%, #a6d9f3 100%);
+}
+.rec-mock {
+  position: absolute;
+  left: calc(50% + 0.5px);
+  margin-left: -264.5px;
+  top: 80.9px;
+  width: 529px;
+  height: 453px;
+  padding: 22.35px;
+  background: #fff;
+  border: 0.93px solid var(--border);
+  border-radius: 18px 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14.9px;
+  overflow: hidden;
+}
+.rec-mock__head {
+  display: flex;
+  align-items: center;
+  gap: 7.45px;
+}
+.rec-mock__title {
+  font-size: 16.76px;
+  font-weight: 600;
+}
+.rec-mock__count {
+  padding: 3.73px 9.31px;
+  border-radius: 999px;
+  background: #f7f9fc;
+  font-size: 11.18px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.rec-row {
+  display: flex;
+  align-items: center;
+  gap: 13.04px;
+  padding: 11.18px;
+  border: 0.93px solid var(--border);
+  border-radius: 11.18px;
+  background: #fff;
+}
+.rec-row__thumb {
+  position: relative;
+  width: 67.06px;
+  height: 44.7px;
+  border-radius: 7.45px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.rec-row__thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rec-row__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.79px;
+  white-space: nowrap;
+}
+.rec-row__title {
+  font-size: 13.04px;
+  font-weight: 600;
+}
+.rec-row__meta {
+  font-size: 11.18px;
+  color: var(--muted);
+}
+.shared-pill {
+  display: flex;
+  align-items: center;
+  gap: 3.73px;
+  padding: 3.73px 9.31px;
+  border-radius: 999px;
+  background: #e8f7ee;
+  color: #16a34a;
+  font-size: 10.25px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.rec-mock__bottom {
+  display: flex;
+  gap: 14.9px;
+}
+.stream-options,
+.transcript {
+  flex: 1;
+  min-width: 0;
+  padding: 14.9px;
+  border-radius: 11.18px;
+  display: flex;
+  flex-direction: column;
+}
+.stream-options {
+  background: #f7f9fc;
+  gap: 7.45px;
+}
+.stream-options__title {
+  font-size: 12.11px;
+  font-weight: 600;
+}
+.mini-toggle {
+  width: 204px;
+  display: flex;
+  align-items: center;
+  gap: 11.18px;
+  padding: 3.73px 0;
+  font-size: 12.11px;
+  font-weight: 500;
+}
+.mini-toggle > span:first-child {
+  flex: 1;
+}
+.mini-switch {
+  width: 33.53px;
+  height: 18.63px;
+  padding: 1.86px;
+  border-radius: 9.31px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.mini-switch__knob {
+  width: 14.9px;
+  height: 14.9px;
+  border-radius: 50%;
+  background: #fff;
+}
+.transcript {
+  background: var(--black);
+  gap: 9.31px;
+}
+.transcript__head {
+  display: flex;
+  align-items: center;
+  gap: 5.59px;
+  color: #fff;
+  font-size: 12.11px;
+  font-weight: 600;
+}
+.transcript__text {
+  min-height: 56px;
+  font-size: 12.11px;
+  line-height: 1.55;
+  color: #d9e3f5;
+}
+.caret--light {
+  background: #d9e3f5;
+  height: 12px;
+}
+.transcript__by {
+  font-size: 10.25px;
+  font-weight: 500;
+  color: #fff;
+}
+
+@media (max-width: 1240px) {
+  .rec {
+    flex-direction: column;
+    padding: 80px 24px;
+    gap: 40px;
+  }
+  .rec__copy {
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+  }
+  .rec__visual {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+@media (max-width: 560px) {
+  .rec__title {
+    font-size: 30px;
+  }
+}
